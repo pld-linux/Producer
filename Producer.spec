@@ -10,6 +10,7 @@ Source0:	http://www.andesengineering.com/Producer/Download/%{name}-%{fversion}.t
 # Source0-md5:	889c99c47a3af7d8df03fb5584919cbe
 Source1:	%{name}.pc
 Patch0:		%{name}-soname.patch
+Patch1:		%{name}-notix86.patch
 URL:		http://www.andesengineering.com/Producer/index.html
 BuildRequires:	OpenGL-devel
 BuildRequires:	OpenThreads-devel
@@ -70,6 +71,7 @@ Biblioteki programistyczne biblioteki Producer.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p1
 
 find -type d -name CVS |xargs rm -rf
 
