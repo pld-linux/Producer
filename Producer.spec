@@ -30,6 +30,23 @@ move to a large system or clustered system of displays by simply
 changing a configuration file, can depend on Open Producer to handle
 all the complexity for them.
 
+%description -l pl
+Open Producer (lub po prostu Producer) jest wieloplatformow±
+bibliotek± C++ do zarz±dzania renderingiem OpenGL. Producer udostêpnia
+prost±, ale u¿yteczn± mo¿liwo¶æ dla aplikacji czasu rzeczywistego 3D
+chc±cych uruchamiaæ siê w pojedyñczym oknie na wielkich,
+wieloekranowych systemach. Producer jest bardzo przeno¶ny i
+przetestowany na Linuksie, Windows, MacOS X, Solarisie i IRIXie.
+Producer dzia³a na wszystkich bazujacych na Uniksie
+systemach(w³±czaj±c w to MacOS X) poprzez system okien X11 lub przez
+natywne wywo³ania win32 na Windows. Producer by³ pisany z my¶l± o
+wydajno¶ci i skalowalno¶ci uwzglêdaniaj±c systemy produkcyjne. Autorzy
+oprogramowania chc±cy tworzyæ aplikacje renderuj±ce 3D które mog± siê
+wy¶wietlaæ na ekranie lub przenie¶æ na wielki system lub klaster
+systemów wy¶wietlaczy poprzez prost± zmianê plików konfiguracyjnych
+mog± polegaæ na Open Producer ¿e obs³u¿y wszystko co jest potrzebne
+dla nich.
+
 %package devel
 Summary:	Devel files for Producent
 Summary(pl):	Pliki developerskie dla Producer
