@@ -1,4 +1,4 @@
-%define	fversion %(echo %{version} |tr 'r' '-')
+%define	fversion	%(echo %{version} | tr r -)
 Summary:	Cross-platform libray for Opengl rendering
 Name:		Producer
 Version:	0.8.4r2
