@@ -1,0 +1,14 @@
+# pkg-config source file
+
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: producer
+Description: cross-platform C++ library for managing OpenGL rendering contexts
+Version: 0.8,5
+Requires: openthreads
+Conflicts:
+Libs: -L${libdir} -lProducer
+Cflags: -I${includedir}
