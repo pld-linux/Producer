@@ -1,4 +1,4 @@
-%define	fversion	%(echo %{version} | tr "r" "-" )
+%define	fversion	%(echo %{version} | tr 'r' '-' )
 Summary:	Cross-platform library for OpenGL rendering
 Summary(pl):	Wieloplatformowa biblioteka do renderingu OpenGL
 Name:		Producer
