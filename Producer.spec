@@ -55,6 +55,7 @@ Summary:	Development files for Producer
 Summary(pl):	Pliki programistyczne biblioteki Producer
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libstdc++-devel
 
 %description devel
 Development files for Producent.
