@@ -2,12 +2,12 @@
 Summary:	Cross-platform library for OpenGL rendering
 Summary(pl):	Wieloplatformowa biblioteka do renderingu OpenGL
 Name:		Producer
-Version:	0.8.4r2
+Version:	0.8.5r3
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.andesengineering.com/Producer/Download/%{name}-%{fversion}.tar.gz
-# Source0-md5:	9e14c27a0e927a19bb3666fa73755652
+# Source0-md5:	889c99c47a3af7d8df03fb5584919cbe
 Patch0:		%{name}-soname.patch
 URL:		http://www.andesengineering.com/Producer/index.html
 BuildRequires:	OpenGL-devel
@@ -65,7 +65,7 @@ Biblioteki programistyczne biblioteki Producer.
 
 %prep
 %setup -q -n %{name}
-%patch0 -p0
+%patch0 -p1
 
 find -type d -name CVS |xargs rm -rf
 
