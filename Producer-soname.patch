@@ -1,5 +1,5 @@
---- Make/makedefs~	2003-10-02 16:56:31.000000000 +0200
-+++ Make/makedefs	2004-06-29 01:48:42.000000000 +0200
+--- Producer.old/Make/makedefs~	2003-10-02 16:56:31.000000000 +0200
++++ Producer/Make/makedefs	2004-06-29 01:48:42.000000000 +0200
 @@ -95,7 +95,7 @@
  INSTLINKCMD        = $(LINK)
  
@@ -9,14 +9,15 @@
  
  MAKEDIST           = echo "   === Distribution build is not implemented yet for $(OS)"; printf "\n"
  INSTLOGFILE        = /tmp/.openThreads_inst_log
---- Make/makerules~	2003-10-02 16:56:31.000000000 +0200
-+++ Make/makerules	2004-06-29 01:52:20.000000000 +0200
-@@ -64,7 +64,7 @@
-   else
+diff -Nur Producer.old/Make/makerules Producer/Make/makerules
+--- Producer.old/Make/makerules	2005-03-01 19:39:00.577309000 +0100
++++ Producer/Make/makerules	2005-03-01 19:44:12.401904536 +0100
+@@ -50,7 +50,7 @@
+ 	$(CXX) $(LDFLAGS) $(OBJS) $(LIBS) -o $@
  
-     $(LIB) : $(OBJS)
--		$(CXX) $(LDFLAGS) $(SHARED) $(OBJS) $(LIBS) -o $@.$(LIB_EXT)
-+		$(CXX) $(LDFLAGS) $(SHARED) $(OBJS) $(LIBS) -o $@.$(LIB_EXT) -Wl,-soname,$@.$(LIB_EXT)
+ $(LIB) : $(OBJS)
+-	$(CXX) $(LDFLAGS) $(SHARED) $(OBJS) $(LIBS) -o $@.$(LIB_EXT)
++	$(CXX) $(LDFLAGS) $(SHARED) $(OBJS) $(LIBS) -o $@.$(LIB_EXT) -Wl,-soname,$@.$(LIB_EXT)
  
-   endif # not HP-UX
- endif # not Darwin
+ $(STATICLIB): $(OBJS)
+ 	ar rv $@ $?
