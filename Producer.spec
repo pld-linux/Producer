@@ -1,5 +1,6 @@
 %define	fversion	%(echo %{version} | tr "r" "-" )
-Summary:	Cross-platform libray for Opengl rendering
+Summary:	Cross-platform library for OpenGL rendering
+Summary(pl):	Wieloplatformowa biblioteka do renderingu OpenGL
 Name:		Producer
 Version:	0.8.4r2
 Release:	1
@@ -37,6 +38,9 @@ Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Devel files for Producent.
+
+%description devel -l pl
+Biblioteki programistyczne dla Producent.
 
 %prep
 %setup -q -n %{name}
