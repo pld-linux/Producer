@@ -1,12 +1,13 @@
-%define	fversion	%(echo %{version} | tr r -)
+%define	fversion	%(echo %{version} | tr "r" "-" )
 Summary:	Cross-platform libray for Opengl rendering
 Name:		Producer
 Version:	0.8.4r2
 Release:	1
-Epoch:		1
 License:	LGPL
 Group:		Libraries
 Source0:	http://www.andesengineering.com/Producer/Download/%{name}-%{fversion}.tar.gz
+# Source0-md5:	9e14c27a0e927a19bb3666fa73755652
+Patch0:		%{name}-soname.patch
 URL:		http://www.andesengineering.com/Producer/index.html
 Provides:	OpenProducer = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -32,12 +33,15 @@ all the complexity for them.
 Summary:	Devel files for Producent
 Summary(pl):	Pliki developerskie dla Producer
 Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Devel files for Producent.
 
 %prep
 %setup -q -n %{name}
+%patch0 -p0
+
 find -type d -name CVS |xargs rm -rf
 
 %build
@@ -48,9 +52,7 @@ find -type d -name CVS |xargs rm -rf
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	 INST_LOCATION=$RPM_BUILD_ROOT%{_prefix}
-
-mv $RPM_BUILD_ROOT%{_prefix}/lib/libProducer.so $RPM_BUILD_ROOT%{_libdir}/libProducer.so.0
-ln -s libProducer.so.0 $RPM_BUILD_ROOT%{_libdir}/libProducer.so
+ln -sf `basename $RPM_BUILD_ROOT%{_libdir}/lib%{name}.so.*` $RPM_BUILD_ROOT%{_libdir}/lib%{name}.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
