@@ -13,6 +13,7 @@ Patch0:		%{name}-soname.patch
 URL:		http://www.andesengineering.com/Producer/index.html
 BuildRequires:	OpenGL-devel
 BuildRequires:	OpenThreads-devel
+BuildRequires:	XFree86-devel
 BuildRequires:	libstdc++-devel
 Provides:	OpenProducer = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -56,6 +57,8 @@ Summary:	Development files for Producer
 Summary(pl):	Pliki programistyczne biblioteki Producer
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	OpenThreads-devel
+Requires:	XFree86-devel
 Requires:	libstdc++-devel
 
 %description devel
@@ -78,13 +81,13 @@ find -type d -name CVS |xargs rm -rf
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	 INST_LOCATION=$RPM_BUILD_ROOT%{_prefix}
-if [ "%{_libdir}" == "%{_prefix}/lib64" ]; then
-	mv $RPM_BUILD_ROOT{%{_prefix}/lib,%{_libdir}}
-fi
+	INST_LOCATION=$RPM_BUILD_ROOT%{_prefix} \
+	INST_LIBS=$RPM_BUILD_ROOT%{_libdir}
+
 ln -sf `basename $RPM_BUILD_ROOT%{_libdir}/lib%{name}.so.*` $RPM_BUILD_ROOT%{_libdir}/lib%{name}.so
+
 install -d $RPM_BUILD_ROOT%{_pkgconfigdir}
-install %{SOURCE1} $RPM_BUILD_ROOT%{_pkgconfigdir}/producer.pc
+sed -e 's,^libdir=.*,libdir=%{_libdir},' %{SOURCE1} >$RPM_BUILD_ROOT%{_pkgconfigdir}/producer.pc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -94,7 +97,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
