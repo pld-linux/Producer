@@ -10,10 +10,10 @@ Source0:	http://www.andesengineering.com/Producer/Download/%{name}-%{fversion}.t
 # Source0-md5:	9e14c27a0e927a19bb3666fa73755652
 Patch0:		%{name}-soname.patch
 URL:		http://www.andesengineering.com/Producer/index.html
-Provides:	OpenProducer = %{version}
 BuildRequires:	OpenGL-devel
 BuildRequires:	OpenThreads-devel
 BuildRequires:	libstdc++-devel
+Provides:	OpenProducer = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,31 +36,31 @@ all the complexity for them.
 %description -l pl
 Open Producer (lub po prostu Producer) jest wieloplatformow±
 bibliotek± C++ do zarz±dzania renderingiem OpenGL. Producer udostêpnia
-prost±, ale u¿yteczn± mo¿liwo¶æ dla aplikacji czasu rzeczywistego 3D
-chc±cych uruchamiaæ siê w pojedyñczym oknie na wielkich,
-wieloekranowych systemach. Producer jest bardzo przeno¶ny i
+prost±, ale skalowaln± mo¿liwo¶æ dla aplikacji czasu rzeczywistego 3D
+od chc±cych uruchamiaæ siê w pojedynczym oknie a¿ do wielkich,
+wieloekranowych systemów. Producer jest bardzo przeno¶ny i
 przetestowany na Linuksie, Windows, MacOS X, Solarisie i IRIXie.
-Producer dzia³a na wszystkich bazujacych na Uniksie
-systemach(w³±czaj±c w to MacOS X) poprzez system okien X11 lub przez
-natywne wywo³ania win32 na Windows. Producer by³ pisany z my¶l± o
-wydajno¶ci i skalowalno¶ci uwzglêdaniaj±c systemy produkcyjne. Autorzy
-oprogramowania chc±cy tworzyæ aplikacje renderuj±ce 3D które mog± siê
+Producer dzia³a na wszystkich bazuj±cych na Uniksie systemach
+(w³±czaj±c w to MacOS X) poprzez system okien X11 lub przez natywne
+wywo³ania win32 na Windows. Producer by³ pisany z my¶l± o wydajno¶ci i
+skalowalno¶ci uwzglêdniaj±c systemy produkcyjne. Autorzy
+oprogramowania chc±cy tworzyæ aplikacje renderuj±ce 3D, które mog± siê
 wy¶wietlaæ na ekranie lub przenie¶æ na wielki system lub klaster
-systemów wy¶wietlaczy poprzez prost± zmianê plików konfiguracyjnych
-mog± polegaæ na Open Producer ¿e obs³u¿y wszystko co jest potrzebne
+systemów wy¶wietlaczy poprzez prost± zmianê plików konfiguracyjnych,
+mog± polegaæ na Open Producer, ¿e obs³u¿y wszystko co jest potrzebne
 dla nich.
 
 %package devel
-Summary:	Devel files for Producent
-Summary(pl):	Pliki developerskie dla Producer
+Summary:	Development files for Producer
+Summary(pl):	Pliki programistyczne biblioteki Producer
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
-Devel files for Producent.
+Development files for Producent.
 
 %description devel -l pl
-Biblioteki programistyczne dla Producent.
+Biblioteki programistyczne biblioteki Producer.
 
 %prep
 %setup -q -n %{name}
@@ -74,6 +74,7 @@ find -type d -name CVS |xargs rm -rf
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	 INST_LOCATION=$RPM_BUILD_ROOT%{_prefix}
 if [ "%{_libdir}" == "%{_prefix}/lib64" ]; then
@@ -91,5 +92,5 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %doc README.txt doc
-%{_includedir}/%{name}
 %attr(755,root,root) %{_libdir}/lib*.so
+%{_includedir}/%{name}
