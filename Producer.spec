@@ -8,6 +8,7 @@ License:	LGPL
 Group:		Libraries
 Source0:	http://www.andesengineering.com/Producer/Download/%{name}-%{fversion}.tar.gz
 # Source0-md5:	889c99c47a3af7d8df03fb5584919cbe
+Source1:	%{name}.pc
 Patch0:		%{name}-soname.patch
 URL:		http://www.andesengineering.com/Producer/index.html
 BuildRequires:	OpenGL-devel
@@ -82,9 +83,14 @@ if [ "%{_libdir}" == "%{_prefix}/lib64" ]; then
 	mv $RPM_BUILD_ROOT{%{_prefix}/lib,%{_libdir}}
 fi
 ln -sf `basename $RPM_BUILD_ROOT%{_libdir}/lib%{name}.so.*` $RPM_BUILD_ROOT%{_libdir}/lib%{name}.so
+install -d $RPM_BUILD_ROOT%{_pkgconfigdir}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_pkgconfigdir}/producer.pc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -95,3 +101,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.txt doc
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/%{name}
+%{_pkgconfigdir}/*.pc
