@@ -1,6 +1,6 @@
 %define	fversion	%(echo %{version} | tr r - )
 Summary:	Cross-platform library for OpenGL rendering
-Summary(pl):	Wieloplatformowa biblioteka do renderingu OpenGL
+Summary(pl.UTF-8):   Wieloplatformowa biblioteka do renderingu OpenGL
 Name:		Producer
 Version:	0.8.5r3
 Release:	1
@@ -36,26 +36,26 @@ move to a large system or clustered system of displays by simply
 changing a configuration file, can depend on Open Producer to handle
 all the complexity for them.
 
-%description -l pl
-Open Producer (lub po prostu Producer) jest wieloplatformow±
-bibliotek± C++ do zarz±dzania renderingiem OpenGL. Producer udostêpnia
-prost±, ale skalowaln± mo¿liwo¶æ dla aplikacji czasu rzeczywistego 3D
-od chc±cych uruchamiaæ siê w pojedynczym oknie a¿ do wielkich,
-wieloekranowych systemów. Producer jest bardzo przeno¶ny i
+%description -l pl.UTF-8
+Open Producer (lub po prostu Producer) jest wieloplatformowÄ…
+bibliotekÄ… C++ do zarzÄ…dzania renderingiem OpenGL. Producer udostÄ™pnia
+prostÄ…, ale skalowalnÄ… moÅ¼liwoÅ›Ä‡ dla aplikacji czasu rzeczywistego 3D
+od chcÄ…cych uruchamiaÄ‡ siÄ™ w pojedynczym oknie aÅ¼ do wielkich,
+wieloekranowych systemÃ³w. Producer jest bardzo przenoÅ›ny i
 przetestowany na Linuksie, Windows, MacOS X, Solarisie i IRIXie.
-Producer dzia³a na wszystkich bazuj±cych na Uniksie systemach
-(w³±czaj±c w to MacOS X) poprzez system okien X11 lub przez natywne
-wywo³ania win32 na Windows. Producer by³ pisany z my¶l± o wydajno¶ci i
-skalowalno¶ci uwzglêdniaj±c systemy produkcyjne. Autorzy
-oprogramowania chc±cy tworzyæ aplikacje renderuj±ce 3D, które mog± siê
-wy¶wietlaæ na ekranie lub przenie¶æ na wielki system lub klaster
-systemów wy¶wietlaczy poprzez prost± zmianê plików konfiguracyjnych,
-mog± polegaæ na Open Producer, ¿e obs³u¿y wszystko co jest potrzebne
+Producer dziaÅ‚a na wszystkich bazujÄ…cych na Uniksie systemach
+(wÅ‚Ä…czajÄ…c w to MacOS X) poprzez system okien X11 lub przez natywne
+wywoÅ‚ania win32 na Windows. Producer byÅ‚ pisany z myÅ›lÄ… o wydajnoÅ›ci i
+skalowalnoÅ›ci uwzglÄ™dniajÄ…c systemy produkcyjne. Autorzy
+oprogramowania chcÄ…cy tworzyÄ‡ aplikacje renderujÄ…ce 3D, ktÃ³re mogÄ… siÄ™
+wyÅ›wietlaÄ‡ na ekranie lub przenieÅ›Ä‡ na wielki system lub klaster
+systemÃ³w wyÅ›wietlaczy poprzez prostÄ… zmianÄ™ plikÃ³w konfiguracyjnych,
+mogÄ… polegaÄ‡ na Open Producer, Å¼e obsÅ‚uÅ¼y wszystko co jest potrzebne
 dla nich.
 
 %package devel
 Summary:	Development files for Producer
-Summary(pl):	Pliki programistyczne biblioteki Producer
+Summary(pl.UTF-8):   Pliki programistyczne biblioteki Producer
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	OpenThreads-devel
@@ -65,7 +65,7 @@ Requires:	libstdc++-devel
 %description devel
 Development files for Producent.
 
-%description devel -l pl
+%description devel -l pl.UTF-8
 Biblioteki programistyczne biblioteki Producer.
 
 %prep
